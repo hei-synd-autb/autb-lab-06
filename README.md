@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 align="left">
   <br>
   <img src="./img/hei-en.png" alt="HEI-Vs Logo" width="350">
   <br>
@@ -8,9 +8,9 @@
 
 Cours AutB
 
-# PracticalWork-MoveAbsolute
-
 Author: [Cédric Lenoir](mailto:cedric.lenoir@hevs.ch)
+
+# LAB 06 Gestion d'un mouvement discret. 
 
 *Keywords:* **PLCopen State Machine MC_Power MC_MoveAbsolute MC_ReadStatus**
 
