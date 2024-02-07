@@ -1,0 +1,24 @@
+@startuml
+
+[*] --> Idle
+Idle --> isPowerOff : mcReadStatus is Disabled
+isPowerOff --> WaitPowerOn : Power.Enable = TRUE
+WaitPowerOn --> isPowerOn : mcReadStatus is Standstill
+isPowerOn --> InitMotion : mcMoveAbsolute.Execute = TRUE
+InitMotion --> InitMotionDone : mcMoveAbsolute.Done = TRUE
+InitMotion --> Stopping : stop
+Stopping --> isPowerOn : mcReadStatus is Standstil
+InitMotionDone --> MoveDown : mcMoveAbsolute.Execute = TRUE
+MoveDown --> MoveDownDone : mcMoveAbsolute.Done = TRUE
+MoveDownDone --> CloseGripper : Pick
+CloseGripper --> GripperClosed : Picked
+GripperClosed --> InitMotion : mcMoveAbsolute.Execute = TRUE
+
+isPowerOff --> ErrorStop : error
+WaitPowerOn --> ErrorStop : error
+isPowerOn --> ErrorStop : error
+InitMotion --> ErrorStop : error
+
+ErrorStop --> isPowerOn : reset
+
+@enduml

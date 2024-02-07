@@ -1,0 +1,12 @@
+# gitignore template for ctrlX Codesys Project
+#
+# Author: Cédric Lenoir
+# Version 0.0
+# Date 2023 October 12
+
+# Codesys files
+*.bootinfo
+*.bootinfo_guids
+*.precompilecache
+*.compileinfo
+*.bak
