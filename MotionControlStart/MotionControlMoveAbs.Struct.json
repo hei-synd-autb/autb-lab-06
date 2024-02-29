@@ -93,7 +93,7 @@
                       "Id": null,
                       "ModuleId": null,
                       "Version": null,
-                      "ObjectGuid": "a556b81b-1e58-4021-9664-353a756c8732",
+                      "ObjectGuid": "b00b1bb5-6735-47b4-8f33-8406bcc0e62e",
                       "SlotIndex": 0,
                       "StructuralItems": []
                     },
@@ -106,7 +106,7 @@
                       "Id": null,
                       "ModuleId": null,
                       "Version": null,
-                      "ObjectGuid": "2e9c4962-c01b-494a-84c6-fdfe7ec44112",
+                      "ObjectGuid": "d5336286-0145-401e-9fd3-63b7a6977cb8",
                       "SlotIndex": 0,
                       "StructuralItems": []
                     }
@@ -133,7 +133,7 @@
                       "Id": null,
                       "ModuleId": null,
                       "Version": null,
-                      "ObjectGuid": "4543a17b-7117-4656-aa9b-0bd8d79b37f9",
+                      "ObjectGuid": "62a73302-2d09-4dff-9b24-6fbe8ff91e17",
                       "SlotIndex": 0,
                       "StructuralItems": []
                     },
@@ -146,7 +146,7 @@
                       "Id": null,
                       "ModuleId": null,
                       "Version": null,
-                      "ObjectGuid": "85be48b1-1bf1-46da-ae49-45e6bd5026ff",
+                      "ObjectGuid": "42f06217-286a-4490-9fd8-3bb887871e49",
                       "SlotIndex": 0,
                       "StructuralItems": []
                     },
@@ -159,7 +159,7 @@
                       "Id": null,
                       "ModuleId": null,
                       "Version": null,
-                      "ObjectGuid": "16c6a404-f2f5-4c6e-9deb-a3eb12c0b8e3",
+                      "ObjectGuid": "3edee7de-dc42-4a6f-a204-e64d454b5e43",
                       "SlotIndex": 0,
                       "StructuralItems": []
                     },
@@ -172,7 +172,7 @@
                       "Id": null,
                       "ModuleId": null,
                       "Version": null,
-                      "ObjectGuid": "2dac78cc-2473-4e5c-893b-9c9c2ca2280b",
+                      "ObjectGuid": "b0312682-4a08-4816-9e90-1e767c783c4b",
                       "SlotIndex": 0,
                       "StructuralItems": []
                     }
@@ -199,7 +199,7 @@
                       "Id": null,
                       "ModuleId": null,
                       "Version": null,
-                      "ObjectGuid": "f44077fc-9239-4f16-aef6-80af36389666",
+                      "ObjectGuid": "b96c4686-8831-4d59-9c2b-b6d644966aa2",
                       "SlotIndex": 0,
                       "StructuralItems": []
                     }
@@ -679,19 +679,6 @@
                   "StructuralItems": []
                 },
                 {
-                  "Name": "PRG_CHECK_IO",
-                  "IconName": null,
-                  "EcadId": null,
-                  "TypeName": "_3S.CoDeSys.POUObject.POUObject",
-                  "Type": 0,
-                  "Id": null,
-                  "ModuleId": null,
-                  "Version": null,
-                  "ObjectGuid": "d5610066-b322-4d3c-a26d-47ad8b18dbd0",
-                  "SlotIndex": 0,
-                  "StructuralItems": []
-                },
-                {
                   "Name": "PRG_MapBox",
                   "IconName": null,
                   "EcadId": null,
@@ -703,8 +690,34 @@
                   "ObjectGuid": "81a742c1-f168-4201-931a-c5044bbbda80",
                   "SlotIndex": 0,
                   "StructuralItems": []
+                },
+                {
+                  "Name": "PRG_CHECK_IO",
+                  "IconName": null,
+                  "EcadId": null,
+                  "TypeName": "_3S.CoDeSys.POUObject.POUObject",
+                  "Type": 0,
+                  "Id": null,
+                  "ModuleId": null,
+                  "Version": null,
+                  "ObjectGuid": "d5610066-b322-4d3c-a26d-47ad8b18dbd0",
+                  "SlotIndex": 0,
+                  "StructuralItems": []
                 }
               ]
+            },
+            {
+              "Name": "Visualization Manager",
+              "IconName": null,
+              "EcadId": null,
+              "TypeName": "_3S.CoDeSys.VisualObject.VisualManagerObject",
+              "Type": 0,
+              "Id": null,
+              "ModuleId": null,
+              "Version": null,
+              "ObjectGuid": "a812f491-8898-4f61-9e7c-c1b9bba32902",
+              "SlotIndex": 0,
+              "StructuralItems": []
             }
           ]
         }
