@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="176px" preserveAspectRatio="none" style="width:1071px;height:176px;background:#FFFFFF;" version="1.1" viewBox="0 0 1071 176" width="1071px" zoomAndPan="magnify"><defs/><g><g id="elem_PLC_PRG"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="79" x="490.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="497.5" y="23.5332">PLC_PRG</text><line style="stroke:#181818;stroke-width:0.5;" x1="491.5" x2="568.5" y1="28.6094" y2="28.6094"/></g><g id="elem_stPlcOpenFbs"><rect fill="#F1F1F1" height="47.2188" style="stroke:#181818;stroke-width:0.5;" width="116" x="7" y="114"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="20.5" y="130.5332">stPlcOpenFbs</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="122" y1="135.6094" y2="135.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="13" y="154.1426">ST_PlcOpenFbs</text></g><g id="elem_stSetMotionParam"><rect fill="#F1F1F1" height="47.2188" style="stroke:#181818;stroke-width:0.5;" width="142" x="158" y="114"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="171.5" y="130.5332">stSetMotionParam</text><line style="stroke:#181818;stroke-width:0.5;" x1="159" x2="299" y1="135.6094" y2="135.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="164" y="154.1426">ST_SetMotionParam</text></g><g id="elem_stStateMachineInfo"><rect fill="#F1F1F1" height="64.8281" style="stroke:#181818;stroke-width:0.5;" width="181" x="335.5" y="105"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="366" y="121.5332">stStateMachineInfo</text><line style="stroke:#181818;stroke-width:0.5;" x1="336.5" x2="515.5" y1="126.6094" y2="126.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="341.5" y="145.1426">ST_StateMachineInfo</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="169" x="341.5" y="162.752">eState EN_MoveAbsStates</text></g><g id="elem_mcReadActualPosition"><rect fill="#F1F1F1" height="47.2188" style="stroke:#181818;stroke-width:0.5;" width="164" x="552" y="114"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="563.5" y="130.5332">mcReadActualPosition</text><line style="stroke:#181818;stroke-width:0.5;" x1="553" x2="715" y1="135.6094" y2="135.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="152" x="558" y="154.1426">MC_ReadActualPosition</text></g><g id="elem_mcReadActualVelocity"><rect fill="#F1F1F1" height="47.2188" style="stroke:#181818;stroke-width:0.5;" width="163" x="751.5" y="114"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="763" y="130.5332">mcReadActualVelocity</text><line style="stroke:#181818;stroke-width:0.5;" x1="752.5" x2="913.5" y1="135.6094" y2="135.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="151" x="757.5" y="154.1426">MC_ReadActualVelocity</text></g><g id="elem_mcReadStatus"><rect fill="#F1F1F1" height="47.2188" style="stroke:#181818;stroke-width:0.5;" width="115" x="949.5" y="114"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="961" y="130.5332">mcReadStatus</text><line style="stroke:#181818;stroke-width:0.5;" x1="950.5" x2="1063.5" y1="135.6094" y2="135.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="955.5" y="154.1426">MC_ReadStatus</text></g><!--MD5=[f3354f847da5ef9abb6670d1d50715a9]
+reverse link PLC_PRG to stPlcOpenFbs--><g id="link_PLC_PRG_stPlcOpenFbs"><path codeLine="20" d="M477.45,34.09 C401.76,45.07 258.17,68.77 140,105 C131.76,107.53 123.19,110.64 114.92,113.91 " fill="none" id="PLC_PRG-backto-stPlcOpenFbs" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="490.33,32.25,483.8266,29.1347,478.4496,33.9397,484.953,37.055,490.33,32.25" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e010d696a0b1973d2bd3bffb975f8a90]
+reverse link PLC_PRG to stSetMotionParam--><g id="link_PLC_PRG_stSetMotionParam"><path codeLine="21" d="M478.09,45.88 C426.15,64.78 346.22,93.86 290.98,113.95 " fill="none" id="PLC_PRG-backto-stSetMotionParam" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="490.34,41.43,483.3341,39.7219,479.0629,45.532,486.0688,47.24,490.34,41.43" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9065ed73429e3233d07eabda2d7748a7]
+reverse link PLC_PRG to stStateMachineInfo--><g id="link_PLC_PRG_stStateMachineInfo"><path codeLine="22" d="M503.48,54.92 C489.07,70.09 471.19,88.92 456.24,104.66 " fill="none" id="PLC_PRG-backto-stStateMachineInfo" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="512.83,45.08,505.7975,46.675,504.565,53.78,511.5975,52.185,512.83,45.08" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[eee7a07bcb748e31b9ee1485e0f7e795]
+reverse link PLC_PRG to mcReadActualPosition--><g id="link_PLC_PRG_mcReadActualPosition"><path codeLine="23" d="M556.23,54.62 C573.61,72.92 596.14,96.64 612.47,113.83 " fill="none" id="PLC_PRG-backto-mcReadActualPosition" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="547.17,45.08,548.4025,52.185,555.435,53.78,554.2025,46.675,547.17,45.08" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[118f803d0c077c7c835497a08f930a27]
+reverse link PLC_PRG to mcReadActualVelocity--><g id="link_PLC_PRG_mcReadActualVelocity"><path codeLine="24" d="M581.93,45.77 C634.16,64.64 714.75,93.77 770.47,113.9 " fill="none" id="PLC_PRG-backto-mcReadActualVelocity" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="569.61,41.32,573.8954,47.1196,580.8971,45.3944,576.6117,39.5948,569.61,41.32" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[364f0ed87067cbdcfb6b68ab6b5bcef9]
+reverse link PLC_PRG to mcReadStatus--><g id="link_PLC_PRG_mcReadStatus"><path codeLine="25" d="M582.95,33.73 C660.64,44.39 809.58,67.85 932,105 C940.24,107.5 948.82,110.6 957.09,113.87 " fill="none" id="PLC_PRG-backto-mcReadStatus" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="569.74,31.94,575.1497,36.7081,581.6317,33.5484,576.222,28.7803,569.74,31.94" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[31fc0117f8c53e5b13421a5fb5fa936f]
+@startuml
+object PLC_PRG
+object stPlcOpenFbs
+object stSetMotionParam
+object stStateMachineInfo
+
+object mcReadActualPosition
+object mcReadActualVelocity
+object mcReadStatus
+
+stPlcOpenFbs : ST_PlcOpenFbs
+stSetMotionParam : ST_SetMotionParam
+stStateMachineInfo : ST_StateMachineInfo
+stStateMachineInfo : eState EN_MoveAbsStates
+
+
+mcReadActualPosition   : MC_ReadActualPosition
+mcReadActualVelocity   : MC_ReadActualVelocity
+mcReadStatus           : MC_ReadStatus
+
+PLC_PRG *- - stPlcOpenFbs
+PLC_PRG *- - stSetMotionParam
+PLC_PRG *- - stStateMachineInfo
+PLC_PRG *- - mcReadActualPosition
+PLC_PRG *- - mcReadActualVelocity
+PLC_PRG *- - mcReadStatus
+
+@endum
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

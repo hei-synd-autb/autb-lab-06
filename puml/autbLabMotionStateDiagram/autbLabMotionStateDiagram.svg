@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="536px" preserveAspectRatio="none" style="width:658px;height:536px;background:#FFFFFF;" version="1.1" viewBox="0 0 658 536" width="658px" zoomAndPan="magnify"><defs/><g><ellipse cx="373.5" cy="16" fill="#222222" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><g id="Disabled"><rect fill="#F1F1F1" height="50" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="75" x="336" y="91.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="336" x2="411" y1="119.1094" y2="119.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55" x="346" y="111.0332">Disabled</text></g><g id="Standstill"><rect fill="#F1F1F1" height="50" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="77" x="278" y="224"/><line style="stroke:#181818;stroke-width:0.5;" x1="278" x2="355" y1="251.6094" y2="251.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="288" y="243.5332">Standstill</text></g><g id="Discrete_Motion"><rect fill="#F1F1F1" height="50" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="122" x="196.5" y="352"/><line style="stroke:#181818;stroke-width:0.5;" x1="196.5" x2="318.5" y1="379.6094" y2="379.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="206.5" y="371.5332">Discrete_Motion</text></g><g id="Stopping"><rect fill="#F1F1F1" height="50" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="76" x="276.5" y="480"/><line style="stroke:#181818;stroke-width:0.5;" x1="276.5" x2="352.5" y1="507.6094" y2="507.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="286.5" y="499.5332">Stopping</text></g><g id="Errorstop"><rect fill="#F1F1F1" height="50" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="79" x="222" y="91.5"/><line style="stroke:#181818;stroke-width:0.5;" x1="222" x2="301" y1="119.1094" y2="119.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="232" y="111.0332">Errorstop</text></g><g id="elem_GMN15"><path d="M6,95 L6,137.7031 A0,0 0 0 0 6,137.7031 L187,137.7031 A0,0 0 0 0 187,137.7031 L187,120.5 L221.95,116.5 L187,112.5 L187,105 L177,95 L6,95 A0,0 0 0 0 6,95 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M177,95 L177,105 L187,105 L177,95 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="12" y="113.4951">From any state</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="12" y="129.8467">An error in the axis occured</text></g><g id="elem_GMN18"><path d="M446,87 L446,112.5 L411.1,116.5 L446,120.5 L446,146.0547 A0,0 0 0 0 446,146.0547 L651,146.0547 A0,0 0 0 0 651,146.0547 L651,97 L641,87 L446,87 A0,0 0 0 0 446,87 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M641,87 L641,97 L651,97 L641,87 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="92" x="452" y="105.4951">From any state.</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="165" x="452" y="121.8467">MC_Power.Enable = FALSE</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="184" x="452" y="138.1982">and there is no error in the axis.</text></g><!--MD5=[8279e1948461305fde6853b7be583d27]
+link *start to Disabled--><g id="link_*start_Disabled"><path d="M373.5,26.09 C373.5,39.61 373.5,65.63 373.5,86.13 " fill="none" id="*start-to-Disabled" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="373.5,91.21,377.5,82.21,373.5,86.21,369.5,82.21,373.5,91.21" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0e16d935a1a28383d577480e530fc51c]
+link Disabled to Standstill--><g id="link_Disabled_Standstill"><path d="M365.19,141.57 C359.74,156.78 352.21,176.75 344.5,194 C340.82,202.22 336.49,210.96 332.34,218.96 " fill="none" id="Disabled-to-Standstill" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="329.79,223.83,337.5035,217.7061,332.1058,219.3986,330.4133,214.0009,329.79,223.83" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7e5d3f45a5f54594dfdc696607bdcacd]
+link Standstill to Discrete_Motion--><g id="link_Standstill_Discrete_Motion"><path d="M277.7,251.71 C241.46,255.61 189.21,267.67 163.5,304 C149.7,323.51 167.82,340.15 191.72,352.5 " fill="none" id="Standstill-to-Discrete_Motion" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="196.24,354.76,189.9887,347.1494,191.7707,352.5182,186.4019,354.3002,196.24,354.76" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="108" x="164.5" y="318.4951">MC_MoveAbsolute</text></g><!--MD5=[78847c5e79f902bd0116a94e06c34e29]
+link Discrete_Motion to Standstill--><g id="link_Discrete_Motion_Standstill"><path d="M268.84,351.78 C278.58,330.97 292.65,300.93 302.98,278.87 " fill="none" id="Discrete_Motion-to-Standstill" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="305.12,274.29,297.6882,280.7528,303.0048,278.8206,304.9371,284.1372,305.12,274.29" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="30" x="291.5" y="318.4951">Done</text></g><!--MD5=[22cf525c17a7929a6dc0940dd359e5bc]
+link Standstill to Stopping--><g id="link_Standstill_Stopping"><path d="M327.35,274.14 C342.92,312.17 367.81,388.07 349.5,450 C346.85,458.95 342.21,467.81 337.15,475.68 " fill="none" id="Standstill-to-Stopping" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="334.31,479.95,342.6305,474.6803,337.0835,475.7897,335.9741,470.2427,334.31,479.95" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f7525cc478ec48c41bbbd038df987134]
+link Errorstop to Standstill--><g id="link_Errorstop_Standstill"><path d="M263.93,141.73 C266.12,157.19 270.16,177.37 277.5,194 C281.4,202.84 286.91,211.66 292.56,219.53 " fill="none" id="Errorstop-to-Standstill" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="295.7,223.8,293.5768,214.1827,292.7321,219.7762,287.1386,218.9314,295.7,223.8" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="61" x="278.5" y="190.4951">MC_Reset</text></g><!--MD5=[9db7ae6d7d1595ba0e773317b96c3720]
+link Discrete_Motion to Stopping--><g id="link_Discrete_Motion_Stopping"><path d="M268.07,402.04 C274.27,416.06 282.27,434.06 289.5,450 C293.18,458.1 297.21,466.87 300.94,474.93 " fill="none" id="Discrete_Motion-to-Stopping" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="303.22,479.84,303.0626,469.9924,301.1165,475.304,295.805,473.3579,303.22,479.84" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="54" x="290.5" y="446.4951">MC_Stop</text></g><!--MD5=[1bd238692554471a7c1a37a882f43bee]
+@startuml
+
+[*] - -> Disabled
+Disabled - -> Standstill
+Standstill - -> Discrete_Motion : MC_MoveAbsolute
+Standstill - -> Stopping
+
+Errorstop - -> Standstill : MC_Reset
+
+Discrete_Motion - -> Stopping : MC_Stop
+Discrete_Motion - -> Standstill : Done
+
+note left of Errorstop
+  From any state
+  An error in the axis occured
+end note
+
+note right of Disabled
+    From any state.
+    MC_Power.Enable = FALSE 
+    and there is no error in the axis.
+end note
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

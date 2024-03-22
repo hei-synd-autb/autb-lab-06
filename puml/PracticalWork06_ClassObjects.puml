@@ -1,0 +1,28 @@
+@startuml
+object PLC_PRG
+object stPlcOpenFbs
+object stSetMotionParam
+object stStateMachineInfo
+
+object mcReadActualPosition
+object mcReadActualVelocity
+object mcReadStatus
+
+stPlcOpenFbs : ST_PlcOpenFbs
+stSetMotionParam : ST_SetMotionParam
+stStateMachineInfo : ST_StateMachineInfo
+stStateMachineInfo : eState EN_MoveAbsStates
+
+
+mcReadActualPosition   : MC_ReadActualPosition
+mcReadActualVelocity   : MC_ReadActualVelocity
+mcReadStatus           : MC_ReadStatus
+
+PLC_PRG *-- stPlcOpenFbs
+PLC_PRG *-- stSetMotionParam
+PLC_PRG *-- stStateMachineInfo
+PLC_PRG *-- mcReadActualPosition
+PLC_PRG *-- mcReadActualVelocity
+PLC_PRG *-- mcReadStatus
+
+@endum

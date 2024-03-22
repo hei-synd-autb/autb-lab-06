@@ -30,6 +30,15 @@ L'état **CoordinatedMotion** est spécifique à une machine avec plusieurs axes
     <figcaption>PLCopen Axis State Machine</figcaption>
 </figure>
 
+Dans le cadre du cours d'automation, nous utiliserons les états suivants:
+
+<figure>
+    <img src="./puml/autbLabMotionStateDiagram/autbLabMotionStateDiagram.svg"
+         alt="Image Lost autbLabMotionStateDiagram.svg">
+    <figcaption>Automation Lab State Diagram</figcaption>
+</figure>
+
+
 # Le job
 > Toutes les transitions vers ErrorStop ne sont pas représentées par soucis de lisibilité, mais dans la pratique, **n'importe quel état possède une transition vers ErrorStop**.
 
@@ -43,7 +52,7 @@ Certaines contraintes peuvent paraître exagérées, mais c'est un exercice de r
 <figure>
     <img src="./puml/PracticalWorkMoveAbsolute/PracticalWorkMoveAbsolute.svg"
          alt="State Machione Practical Work Move Absolute">
-    <figcaption>State Machione Practical Work Move Absolute</figcaption>
+    <figcaption>State Machine Practical Work Move Absolute</figcaption>
 </figure>
 
 # Available structures ``STRUCT``.
@@ -65,6 +74,14 @@ STRUCT
     strGetAxisStatus     : STRING;
 END_STRUCT
 END_TYPE
+```
+
+> Les variables ``bEnableRemote``, ``bMoveAbs``, ``bStop``, ``bPowerOn``, ``bReset`` sont conçues pour piloter manuellement les Function Block, par exemple avec un OR sur un Execute
+
+```iecst
+mcStop(Axis := GVL_AxisDefines.X_Axis,
+       Execute := (state = stateStop) OR
+                  (stPlcOpenFbs.bEnableRemote AND stPlcOpenFbs.bStop));
 ```
 
 ## List of dynamic parameters for ``MC_MoveAbs``
@@ -96,7 +113,62 @@ END_STRUCT
 END_TYPE
 ```
 
+> Notez la variable ``strState`` de type ``STRING`` qui peut être utilisée dans le code pour documenter la machine d'état et simplifier le diagnostic de la machine.
+
+```iecst
+(*
+    Main State Machine.
+*)
+CASE stStateMachineInfo.eState OF
+    EN_MoveAbsStates.eIdle :
+        stStateMachineInfo.strState := 'Idle';
+        ;
+```
+
+## Enum for state
+Integrated in ``ST_StateMachineInfo``, to be completed.
+
+```iecst
+TYPE EN_MoveAbsStates :
+(
+    eIdle := 999
+)DINT := eIdle;
+END_TYPE
+```
+
+# HMI
+Une interface par défaut est fournie. Elle utilise les structure ci-dessus intégrées dans programme principal ainsi que quelques fonctions utlilitaire.
+
+<figure>
+    <img src="./puml/PracticalWork06_ClassObjects/PracticalWork06_ClassObjects.svg"
+         alt="PracticalWork06_ClassObjects">
+    <figcaption>Practical Work06 Base ClassObjects</figcaption>
+</figure>
+
+On notera que ce diagramme n'intègre pas les ``Function Blocks`` nécessaires au **motion control**.
+
 # Main function blocks PLCopen
+
+## AXIS_REF
+On a typiquement un accès de type ``VAR_IN_OUT`` qui fournit à chaque ``Function Block`` un axe référencé dans le noyau **Motion Control**.
+
+Dans le système à notre disposition, on utilise une fonction spécifique qui permet de récupérer la référence à la structure pour ``AXIS_REF``.
+
+Voir dans ``GVL_AxisDefines``
+
+```iecst
+VAR_GLOBAL
+	  X_Axis: MB_AXISIF_REF :=(AxisName:='Axis_1',AxisNo:=1);
+END_VAR
+```
+C'est cette valeur ``X_Axis``, qui est utilisée obligatoirement lors de l'appel d'un FB pour le Motion Control, par exemple pour ``MC_Stop``:
+
+```iecst
+
+mcStop(Axis := GVL_AxisDefines.X_Axis,
+       Deceleration := 1,
+       Execute := stPlcOpenFbs.bStop);
+```
 
 ## MC_Power 
 ### Short description
@@ -247,3 +319,18 @@ Error detail information please see CXA_MOTION_ERR.
 |VAR_OUTPUT |``ErrorIdent``  |ERROR_STRUCT |Detailed information about error|
 |VAR_IN_OUT |``Axis``        |AXIS_REF     |Reference to the axis ``CONST``|
 
+# Pas suivant, en continu.
+Une fois que le principe est aquis, le travail peut être continué avec la séquence suivante:
+
+-   Prendre une pièce.
+-   La lever
+-   Le reposer
+-   Revenir en état initial
+-   Continuer tant qu'il n'y a pas de commande stop.
+
+# Pas suivant, intégration de l'axe Y.
+Si le principe est compris, on intégrera l'axe Y pour déplacer la pièce d'un endroit à un autre.
+
+# Intégration complète
+On constatera que l'utilisation du principe pour un système complet devient rapidement ingérable.
+Une option consiste à développer un ``Function Block`` qui intègre un **Pick & Place** complet avec paramétrage de la position de départ, **Pick**, et la position d'arrivée, **Place**.

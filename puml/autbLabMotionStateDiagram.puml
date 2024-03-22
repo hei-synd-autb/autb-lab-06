@@ -1,0 +1,24 @@
+@startuml
+
+[*] --> Disabled
+Disabled --> Standstill
+Standstill --> Discrete_Motion : MC_MoveAbsolute
+Standstill --> Stopping
+
+Errorstop --> Standstill : MC_Reset
+
+Discrete_Motion --> Stopping : MC_Stop
+Discrete_Motion --> Standstill : Done
+
+note left of Errorstop
+  From any state
+  An error in the axis occured
+end note
+
+note right of Disabled
+    From any state.
+    MC_Power.Enable = FALSE 
+    and there is no error in the axis.
+end note
+
+@enduml
