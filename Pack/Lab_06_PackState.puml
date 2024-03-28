@@ -1,0 +1,36 @@
+@startuml
+
+state Aborted
+state Clearing 
+state Stopped
+state Resetting
+state Idle
+state Starting
+state Stopping
+state Aborting
+state Execute
+
+[*] --> Aborted
+Aborted --> Clearing : Btn_Reset
+Clearing --> Stopped : Clearing.SC
+Stopped --> Resetting : Btn_Reset
+Stopping --> Stopped : Stopping.SC
+Aborting --> Aborted : Aborting.SC
+Resetting --> Idle : Resetting.SC
+Idle --> Starting : Btn_Start
+Starting --> Execute : Starting.SC 
+Execute --> Resetting : Execute.SC
+
+Clearing --> Aborting : E_Stop
+Stopped --> Aborting : E_Stop
+Stopping --> Aborting : E_Stop
+Resetting --> Aborting : E_Stop
+Idle --> Aborting : E_Stop
+Starting --> Aborting : E_Stop
+
+Resetting --> Stopping : Btn_Stop
+Idle --> Stopping : Btn_Stop
+Starting --> Stopping : Btn_Stop
+Execute --> Stopping : Btn_Stop
+
+@enduml
