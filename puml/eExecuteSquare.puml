@@ -1,0 +1,29 @@
+@startuml
+
+[*] --> Idle
+Idle --> MoveCornerOne
+MoveCornerOne --> MoveCornerOneDone
+note right of MoveCornerOneDone
+    fbOpenGripper.Execute:= TRUE;
+end note
+
+MoveCornerOneDone --> MoveCornerTwo
+MoveCornerTwo --> MoveCornerTwoDone
+note right of MoveCornerTwoDone
+    fbCloseGripper.Execute:= TRUE;
+end note
+
+MoveCornerTwoDone --> MoveCornerThree
+MoveCornerThree --> MoveCornerThreeDone
+note right of MoveCornerThreeDone
+    fbOpenGripper.Execute:= TRUE;
+end note
+
+MoveCornerThreeDone --> MoveCornerFour
+MoveCornerFour --> MoveCornerFourDone
+note right of MoveCornerFourDone
+    fbCloseGripper.Execute:= TRUE;
+end note
+
+MoveCornerFourDone --> MoveCornerOne
+@enduml
