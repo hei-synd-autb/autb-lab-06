@@ -1,0 +1,18 @@
+@startuml
+
+[*] --> Idle
+Idle --> SelectNextCorner
+
+SelectNextCorner --> MoveToCorner : NotFinished
+
+MoveToCorner --> MoveToCornerDone
+
+MoveToCornerDone --> SelectNextCorner
+
+SelectNextCorner--> WaitStopCommand : NoMoreCorner
+note right of WaitStopCommand
+    Could be a SC to go 
+    to State Complete;
+end note
+
+@enduml
