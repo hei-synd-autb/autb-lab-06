@@ -39,7 +39,7 @@ Dans le cadre du cours d'automation, nous utiliserons les états suivants:
 </figure>
 
 
-# Le job
+# Le job sans PackML
 > Toutes les transitions vers ErrorStop ne sont pas représentées par soucis de lisibilité, mais dans la pratique, **n'importe quel état possède une transition vers ErrorStop**.
 
 > **Aucune transition en dehors du ``CASE..OF`` n'est autorisée**, sauf pour réinitialiser le système sur Idle.
@@ -48,6 +48,7 @@ Dans le cadre du cours d'automation, nous utiliserons les états suivants:
 
 Certaines contraintes peuvent paraître exagérées, mais c'est un exercice de rigueur de programmation.
 
+> Une machine d'état pour un seul axe est déjà passablement compliquée si l'on n'utilise pas ``PackML``. **Dans la pratique, on évitera de travailler sans PackML et on ignorera cet exercice**.
 
 <figure>
     <img src="./puml/PracticalWorkMoveAbsolute/PracticalWorkMoveAbsolute.svg"
@@ -161,13 +162,25 @@ VAR_GLOBAL
 	  X_Axis: MB_AXISIF_REF :=(AxisName:='Axis_1',AxisNo:=1);
 END_VAR
 ```
-C'est cette valeur ``X_Axis``, qui est utilisée obligatoirement lors de l'appel d'un FB pour le Motion Control, par exemple pour ``MC_Stop``:
+
+> ``Axis_1`` fait référence à un axe défini dans le noyau NC du ctrlX Core.
+
+C'est la variable ``X_Axis``, qui est utilisée obligatoirement lors de l'appel d'un FB pour le Motion Control, par exemple pour ``MC_Stop``: 
 
 ```iecst
 
 mcStop(Axis := GVL_AxisDefines.X_Axis,
        Deceleration := 1,
        Execute := stPlcOpenFbs.bStop);
+```
+
+```iecst
+
+> On pourra définit des accès à d'autres axes de la manière suivante;
+VAR_GLOBAL
+	  Y_Axis: MB_AXISIF_REF :=(AxisName:='Axis_2',AxisNo:=2);
+	  Z_Axis: MB_AXISIF_REF :=(AxisName:='Axis_3',AxisNo:=3);
+END_VAR
 ```
 
 ## MC_Power 
@@ -319,18 +332,104 @@ Error detail information please see CXA_MOTION_ERR.
 |VAR_OUTPUT |``ErrorIdent``  |ERROR_STRUCT |Detailed information about error|
 |VAR_IN_OUT |``Axis``        |AXIS_REF     |Reference to the axis ``CONST``|
 
-# Pas suivant, en continu.
-Une fois que le principe est aquis, le travail peut être continué avec la séquence suivante:
+# PackML, Resetting,
+En pratique, cela consiste à mettre le système dans un état stable prêt pour la phase de démarrage.
 
--   Prendre une pièce.
--   La lever
--   Le reposer
--   Revenir en état initial
--   Continuer tant qu'il n'y a pas de commande stop.
+> Le principe ici, en analysant brièvement la machine, est de constater qu'un mouvement en X ou Y pourrait provoquer un blocage mécanique si l'axe Z ne se trouve pas en position haute.
+
+## Tâche de programmation
+Ici, on va modifier l'état resetting pour lever l'axe Z uniquememnt avant tout autre action.
+
+### Code existant
+
+```iecst
+IF fbPackStates.state.Resetting THEN
+	fbPackStates.Resetting_SC := FALSE;
+	CASE eResetting OF
+		E_Resetting.Idle :
+            stSetParam_X.rPosition_mm := 50;
+			stSetParam_X.rVeloctiy_mm_s := 2000; 
+
+            (*
+                You should set Z position here
+            *) 
+			
+            eResetting := E_Resetting.eMotionInit_Up;
+
+        (*
+            You should add some state here and modify access to states
+        *) 
+
+		E_Resetting.eMotionInit_Up :
+			IF mcMoveAbs_Z.Done THEN
+				eResetting := E_Resetting.eMotionInitDone_Up; 
+			END_IF
+
+		E_Resetting.eMotionInitDone_Up :
+			eResetting := E_Resetting.eMotionInit; 
+
+		E_Resetting.eMotionInit :
+			IF mcMoveAbs_X.Done THEN
+				eResetting := E_Resetting.eMotionInitDone; 
+			END_IF
+
+		E_Resetting.eMotionInitDone :
+			;
+	END_CASE
+	 
+	IF eResetting = E_Resetting.eMotionInitDone THEN
+		fbPackStates.Resetting_SC := TRUE;
+	END_IF
+ELSE
+	eResetting := E_Resetting.Idle;
+END_IF
+```
+
+> N'oubliez pas de déplacer l'axe Z à l'aide de fbMoveAbsolute selon les nouveaux états.
+
+# Intégration square
+On constatera que l'utilisation du principe pour un système complet devient rapidement ingérable.
+Une fois le système compris, on définira un système qui permet de décrire le système via un tableau de points qui pourrait être donné à l'axe sous la forme d'une recette.
+
+On testera en effectuant un carré.
+
+|Id |Move To Position X|M.T.P Y |M.T.P Z |Action      |Delay [ms] |Next Id|
+|---|------------------|--------|--------|------------|-----------|-------|
+|1  |0                 |???     |50      |eOpen       |500        |2      |
+|2  |0                 |???     |0       |eClose      |0          |3      |
+|3  |50                |???     |0       |eOpen       |0          |4      |
+|4  |50                |???     |50      |eClose      |0          |1      |
+|1  |0                 |???     |50      |eOpen       |500        |2      |
+
+<figure>
+    <img src="./img/DriveSquare.png"
+         alt="Image Lost DriveSquare">
+    <figcaption>2D motion with a square</figcaption>
+</figure>
 
 # Pas suivant, intégration de l'axe Y.
-Si le principe est compris, on intégrera l'axe Y pour déplacer la pièce d'un endroit à un autre.
+Si le principe est compris, on intégrera l'axe Y pour suivre les contours d'un cube.
 
-# Intégration complète
-On constatera que l'utilisation du principe pour un système complet devient rapidement ingérable.
-Une option consiste à développer un ``Function Block`` qui intègre un **Pick & Place** complet avec paramétrage de la position de départ, **Pick**, et la position d'arrivée, **Place**.
+<figure>
+    <img src="./img/DriveCube.png"
+         alt="Image Lost DriveSquare">
+    <figcaption>3D motion with a Cube</figcaption>
+</figure
+
+|Id |Move To Position X|M.T.P Y |M.T.P Z |Action      |Delay [ms] |Next Id|
+|---|------------------|--------|--------|------------|-----------|-------|
+
+|Id |Move To Position X|M.T.P Y |M.T.P Z |Action      |Delay [ms] |Next Id|
+|---|------------------|--------|--------|------------|-----------|-------|
+|1  |0                 |0       |50      |eOpen       |500        |2      |
+|2  |0                 |0       |0       |eClose      |0          |3      |
+|3  |0                 |50      |0       |eOpen       |0          |4      |
+|4  |0                 |50      |50      |eClose      |0          |5      |
+|5  |50                |50      |50      |eOpen       |0          |6      |
+|6  |50                |50      |0       |eClose      |0          |7      |
+|7  |50                |0       |0       |eOpen       |0          |8      |
+|8  |50                |0       |50      |eClose      |0          |1      |
+|1  |0                 |0       |50      |eOpen       |500        |2      |
+
+# Finalement
+On utilisera un compteur pour connaître le nombre de cycle et on vérifiera si l'on parvient toujours à récupérer le système en ouvrant la porte à n'importe quel moment.
